@@ -2,48 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Team\TeamRequest;
+use App\Http\Resources\Team\TeamCollection;
+use App\Http\Resources\Team\TeamResource;
 use App\Models\Team;
-use Illuminate\Http\Request;
+use Orion\Concerns\DisableAuthorization;
+use Orion\Concerns\DisablePagination;
+use Orion\Http\Controllers\Controller;
 
 class TeamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+    use DisablePagination;
+    use DisableAuthorization;
 
     /**
-     * Store a newly created resource in storage.
+     * Fully-qualified model class name
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    protected $model = Team::class;
+
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Team $team)
-    {
-        //
-    }
+    * @var string $request
+    */
+    protected $request = TeamRequest::class;
 
     /**
-     * Update the specified resource in storage.
+     * @var string $resource
      */
-    public function update(Request $request, Team $team)
-    {
-        //
-    }
+    protected $resource = TeamResource::class;
 
     /**
-     * Remove the specified resource from storage.
+     * @var string $collectionResource
      */
-    public function destroy(Team $team)
-    {
-        //
-    }
+    protected $collectionResource = TeamCollection::class;
+
 }
